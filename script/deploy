@@ -1,0 +1,8 @@
+#!/bin/sh
+ssh ubuntu@18.212.175.239 <<EOF
+ cd ~/secret-app
+ git pull
+ npm install
+ pm2 restart all
+ exit
+EOF

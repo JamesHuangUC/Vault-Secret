@@ -1,0 +1,22 @@
+{
+  "name": "secret-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --exit ./test/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-vault": "^0.9.9"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
+  }
+}
+

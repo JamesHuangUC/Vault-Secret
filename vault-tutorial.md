@@ -61,15 +61,14 @@ vault auth enable approle
 # Create ttl role with above policy
 vault write auth/approle/role/secretapprole secret_id_ttl=10m token_num_uses=10 token_ttl=2m token_max_ttl=30m secret_id_num_uses=40 policies=secretapp
 
-# Get RoleID and pass to application
+# Get RoleID
 vault read auth/approle/role/secretapprole/role-id
 
 # Get Wrap Secret Token
 vault write -wrap-ttl=2m -f auth/approle/role/secretapprole/secret-id
 
 # Note we will unwrap the above token to get secretID using vault unwrap
-
-
+```
 
 8. Test use RoleID and SecretID to get client token in order to get secretID.
 

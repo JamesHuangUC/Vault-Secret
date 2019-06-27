@@ -31,7 +31,10 @@ vault write secret/secretapp/config "@/myvault/config/secret-conf.json"
 ```
 
 4. Test to read our secret as root.
+
+```sh
 vault read secret/secretapp/config
+```
 
 5. Test to read our secret using wrap token.
 
@@ -40,7 +43,8 @@ vault read -wrap-ttl=60s secret/secretapp/config
 vault unwrap lYO2AoJ95QEDnZgUbNxoWWsw
 ```
 
-6. Create a policy that only can read path secret/secretapp/
+6. Create a policy that only can read path `secret/secretapp/`.
+
 `/myvault/policies/policy.hcl`
 
 ```hcl

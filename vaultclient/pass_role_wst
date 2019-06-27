@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Get role id and wrapped secret token
+echo $HOSTNAME
+RID=$(docker exec -i f19 vault read -format=json auth/approle/role/weatherrole/role-id | jq -r .data.role_id)
+WSTOKEN=$(docker exec -i f19 vault write -format=json -wrap-ttl=2m -f auth/approle/role/weatherrole/secret-id | jq -r .wrap_info.token)
+echo "passing role id: $RID"
+echo "passing wst: $WSTOKEN"
+
+# Pass role id and wrapped secret token to application
+ssh ubuntu@18.212.175.239 "echo export ROLEID=$RID > .bash_profile; echo export WST=$WSTOKEN >> .bash_profile; source .bash_profile"

@@ -2,7 +2,7 @@
 ssh ubuntu@18.212.175.239 <<EOF
  cd ~/secret-app
  git pull
- npm install
+ npm install - production
  pm2 restart all
  exit
 EOF

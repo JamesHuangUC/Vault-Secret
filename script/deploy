@@ -4,6 +4,6 @@ ssh ubuntu@18.212.175.239 <<EOF
  cd ~/secret-app
  git pull
  npm install --only=prod
- pm2 restart npm -- start --update-env
+ pm2 restart --update-env npm -- start
  exit
 EOF

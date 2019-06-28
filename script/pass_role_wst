@@ -1,0 +1,8 @@
+#!/bin/bash
+#echo From ip: $HOSTNAME
+RID=$(docker exec -i f19 vault read -format=json auth/approle/role/secretapprole/role-id | jq -r .data.role_id)
+WSTOKEN=$(docker exec -i f19 vault write -format=json -wrap-ttl=2m -f auth/approle/role/secretapprole/secret-id | jq -r .wrap_info.token)
+echo "Passing role id: $RID"
+echo "Passing wst: $WSTOKEN"
+ssh ubuntu@18.212.175.239 "echo export ROLEID=$RID > .bash_profile; echo export WST=$WSTOKEN >> .bash_profile"
+ssh ubuntu@18.212.175.239 "echo PS1='ubuntu@nodejs\$\ ' >> .bash_profile"

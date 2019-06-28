@@ -39,7 +39,7 @@ vault
                 var client_vault = require('node-vault')(client_options);
 
                 client_vault
-                    .read('secret/weatherapp/config')
+                    .read('secret/secretapp/config')
                     .then(secretData => {
                         console.log(secretData);
                         secret = secretData;

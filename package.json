@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": ". ~/.bash_profile && node app.js",
     "test": "mocha --exit ./test/test.js"
   },
   "keywords": [],
